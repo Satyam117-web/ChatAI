@@ -1,16 +1,14 @@
 import React from 'react'
 import './App.css'
+import Hero from './components/Hero'
+import Chat from './components/Chat'
 
 function App() {
   
   return (
     <>
-    <div className='min-h-screen '>
-     <div className='flex flex-col justify-center items-center '>
-      <img src="/AI.png" className='w-[40%] cursor-pointer ' />
-     </div>
-      <p className='text-6xl font-bold flex justify-center'>Chat AI</p>
-    </div>
+     {/* <Hero/> */}
+     <Chat/>
     </>
   )
 }
