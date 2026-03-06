@@ -14,13 +14,23 @@ def chat_model():
     print("ChatAI: Hello!! I''m your virtual Chat Partner, Type to converse")
     print("Type (quit) to quit ")
 
-    user_input = input("You: ")
+    # user_input = input("You: ")
 
-    response = client.models.generate_content(
-        model = "gemini-3-flash-preview",
-        contents = user_input
-    )
-    print(response.text)
+    while True:
+        user_input = input("You: ")
+        if user_input.lower() == "quit":
+            print("It was a good chat!!!")
+            break
+        try:
+            response = client.models.generate_content(
+                model = "gemini-3-flash-preview",
+                # model = "gemini-2.0-flash",
+                contents = user_input
+            )
+            print(f"ChatAI: {response.text}")
+        except Exception as e:
+            print(f"Error: {e}")
+        
 if __name__ == "__main__":
     chat_model()
 
