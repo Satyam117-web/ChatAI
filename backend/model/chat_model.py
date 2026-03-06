@@ -18,6 +18,6 @@ def chat_model():
         model = "gemini-3-flash-preview",
         contents = user_input
     )
-
+z
 if __name__ == "__main__":
     chat_model()
