@@ -6,7 +6,7 @@ app = Flask(__name__)
 def hello_world():
     return "Hello world one one "
 
-user_input={"user":[]}
+user_input=[{"user":[]}]
 
 @app.route('/api/query', methods=['POST'])
 def save():
@@ -15,9 +15,19 @@ def save():
     # data = request.get_json()
     # print("Received from frontend:", data)
     # return jsonify({"status": "received"})
+    # print(user_input)
     return jsonify(data)
+    
+# user_input = [] # Just an empty list
 
-print(user_input)
+# @app.route('/api/query', methods=['POST'])
+# def save():
+#     data = request.get_json()
+    
+#     # Direct append
+#     user_input.append(data)
+    
+#     return jsonify(user_input)
 
 if __name__ == "__main__":
     app.run(debug=True)

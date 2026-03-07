@@ -14,20 +14,6 @@ def chat_model():
     print("ChatAI: Hello!! I''m your virtual Chat Partner, Type to converse")
     print("Type (quit) to quit ")
 
-<<<<<<< HEAD
-    user_input = input("You: ")
-
-    # response = client.models.generate_content(
-    #     model = "gemini-3-flash-preview",
-    #     contents = user_input
-    # )
-
-    response = client.chat.completions.create(
-        model = "gemini-3-flash-preview",
-        contents = user_input
-    )
-z
-=======
     # user_input = input("You: ")
 
     while True:
@@ -45,7 +31,6 @@ z
         except Exception as e:
             print(f"Error: {e}")
         
->>>>>>> sujal
 if __name__ == "__main__":
     chat_model()
 
