@@ -1,18 +1,20 @@
 import os
 from google import genai
-from openai import OpenAI
-from dotenv import load_dotenv
+from dotenv import load_dotenv, find_dotenv
 
-# client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
-load_dotenv()
-client = OpenAI(
-     api_key=os.getenv("GEMINI_API_KEY"),
-     base_url=os.getenv("BASE_URL")
-)
+load_dotenv(find_dotenv())
+client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+
+# client = OpenAI(
+#      api_key=os.getenv"GEMINI_API_KEY",
+#      base_url=os.getenv"BASE_URL"
+# )
+
 def chat_model():
     print("ChatAI: Hello!! I''m your virtual Chat Partner, Type to converse")
     print("Type (quit) to quit ")
 
+<<<<<<< HEAD
     user_input = input("You: ")
 
     # response = client.models.generate_content(
@@ -25,5 +27,41 @@ def chat_model():
         contents = user_input
     )
 z
+=======
+    # user_input = input("You: ")
+
+    while True:
+        user_input = input("You: ")
+        if user_input.lower() == "quit":
+            print("It was a good chat!!!")
+            break
+        try:
+            response = client.models.generate_content(
+                model = "gemini-3-flash-preview",
+                # model = "gemini-2.0-flash",
+                contents = user_input
+            )
+            print(f"ChatAI: {response.text}")
+        except Exception as e:
+            print(f"Error: {e}")
+        
+>>>>>>> sujal
 if __name__ == "__main__":
     chat_model()
+
+# import os
+
+# from dotenv import load_dotenv, find_dotenv
+# from google import genai
+
+# 1. This is the crucial step you are likely missing!
+# It searches for your .env file and loads the keys into memory.
+# load_dotenv(find_dotenv())
+
+# # The client gets the API key from the environment variable `GEMINI_API_KEY`.
+# client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+
+# response = client.models.generate_content(
+#     model="gemini-3-flash-preview", contents="Explain how AI works in a few words"
+# )
+# print(response.text)
