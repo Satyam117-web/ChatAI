@@ -22,15 +22,8 @@ def chat_model():
 
     response = client.chat.completions.create(
         model = "gemini-3-flash-preview",
-        messages =[
-            {
-                "role" :"user", "content":" Thankyou for your suggestions"
-            }
-        ]
+        contents = user_input
     )
-
-    # print(response.text)
-    print(response.choices[0].message.content)
-
+z
 if __name__ == "__main__":
     chat_model()
